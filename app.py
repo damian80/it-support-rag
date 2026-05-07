@@ -7,7 +7,7 @@ load_dotenv()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-st.title("🖥️ Harrodian - IT Support Assistant")
+st.title("🖥️ IT Support Assistant")
 st.write("Ask me anything about IT issues")
 
 if "messages" not in st.session_state:
@@ -26,7 +26,7 @@ if prompt := st.chat_input("Describe your IT problem..."):
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
-    {"role": "system", "content": "You are Damian, an IT Support Technician at Harrodian School in London. You help staff and students with IT issues. Sign your responses as 'Damian - IT Support'."},
+    {"role": "system", "content": "You are an IT Support Assistant. You help users troubleshoot common IT issues clearly and efficiently."},
     *st.session_state.messages
 ]
     )
@@ -34,5 +34,7 @@ if prompt := st.chat_input("Describe your IT problem..."):
     reply = response.choices[0].message.content
     st.session_state.messages.append({"role": "assistant", "content": reply})
     
+    with st.chat_message("assistant"):
+        st.write(reply)
     with st.chat_message("assistant"):
         st.write(reply)
