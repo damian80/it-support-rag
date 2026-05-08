@@ -1,5 +1,7 @@
 # 🖥️ IT Support RAG Assistant
 
+**Live Demo:** https://it-support-rag-4qzbhregshcakrhvnagqnk.streamlit.app/
+
 A Streamlit web application that uses OpenAI API to provide intelligent IT support assistance. Built to help IT technicians and end users troubleshoot common IT issues through a conversational interface.
 
 ## What it does
