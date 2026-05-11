@@ -11,6 +11,18 @@ RAG-powered IT support assistant. Upload PDF documents and ask questions. Built 
 - Responds as a named IT support technician
 - Built with real-world IT support use cases from a school environment
 
+## How It Works
+
+1. **Upload** — User uploads a PDF document (IT policy, guide, or manual)
+2. **Extract** — Text is extracted from the PDF using pypdf
+3. **Chunk** — Text is split into 500-word sections
+4. **Embed** — Each section is converted to a vector using OpenAI's text-embedding-3-small model
+5. **Index** — Vectors are stored in a FAISS index for fast similarity search
+6. **Query** — User asks a question; the question is also embedded
+7. **Retrieve** — FAISS finds the 3 most relevant sections
+8. **Generate** — Relevant sections + question are sent to GPT-4o-mini
+9. **Answer** — Response is grounded in the document content
+
 ## Tech Stack
 
 - Python
